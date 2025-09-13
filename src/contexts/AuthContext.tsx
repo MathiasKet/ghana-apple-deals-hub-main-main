@@ -1,6 +1,11 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, Session } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { createContext, useContext, useState, ReactNode } from 'react';
+
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  avatar_url?: string;
+}
 
 interface AuthContextType {
   currentUser: User | null;
@@ -24,60 +29,73 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Check active sessions and set the user
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setCurrentUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => {
-      subscription?.unsubscribe();
-    };
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   const signup = async (email: string, password: string, name: string) => {
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: {
-          full_name: name,
-        },
-      },
-    });
-    
-    return { error };
+    // TODO: Implement your signup logic here
+    // This is a placeholder implementation
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Create a mock user
+      const user: User = {
+        id: 'mock-user-id',
+        email,
+        name,
+      };
+      
+      setCurrentUser(user);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
   };
 
   const login = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    
-    return { error };
+    // TODO: Implement your login logic here
+    // This is a placeholder implementation
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
+      // Create a mock user
+      const user: User = {
+        id: 'mock-user-id',
+        email,
+        name: 'Mock User',
+      };
+      
+      setCurrentUser(user);
+      return { error: null };
+    } catch (error) {
+      return { error };
+    }
   };
 
   const logout = async () => {
-    const { error } = await supabase.auth.signOut();
-    return { error };
+    // TODO: Implement your logout logic here
+    setCurrentUser(null);
+    return { error: null };
   };
 
   const resetPassword = async (email: string) => {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/update-password`,
-    });
-    return { error };
+    // TODO: Implement your password reset logic here
+    return { error: null };
   };
 
   const updateUserProfile = async (updates: { display_name?: string; avatar_url?: string }) => {
-    const { error } = await supabase.auth.updateUser({
-      data: updates
-    });
-    return { error };
+    if (!currentUser) return { error: 'No user logged in' };
+    
+    // TODO: Implement your profile update logic here
+    const updatedUser = {
+      ...currentUser,
+      name: updates.display_name || currentUser.name,
+      avatar_url: updates.avatar_url || currentUser.avatar_url,
+    };
+    
+    setCurrentUser(updatedUser);
+    return { error: null };
   };
 
   const value = {
