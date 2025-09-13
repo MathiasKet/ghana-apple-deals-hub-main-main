@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Local development
+.DS_Store
+.vercel
+
+# Test files
+__tests__/
+*.test.*
+*.spec.*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

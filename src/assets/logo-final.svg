@@ -1,0 +1,22 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monitor with Apple Logo -->
+  <rect x="10" y="5" width="50" height="30" rx="5" fill="#00B2A9"/>
+  <path d="M25 15C25 14.4477 25.4477 14 26 14H44C44.5523 14 45 14.4477 45 15V24C45 24.5523 44.5523 25 44 25H26C25.4477 25 25 24.5523 25 24V15Z" fill="white"/>
+  <path d="M35 10C35 9.44772 34.5523 9 34 9H36C36.5523 9 37 9.44772 37 10V11C37 11.5523 36.5523 12 36 12H34C34.4477 12 35 11.5523 35 11V10Z" fill="#00B2A9"/>
+  
+  <!-- Gear -->
+  <circle cx="60" cy="20" r="15" fill="black"/>
+  <path d="M60 10L60 14M60 26L60 30M50 20L46 20M74 20L70 20M52.9289 13.0711L55.7574 15.8995M64.2426 24.1005L67.0711 26.9289M52.9289 26.9289L55.7574 24.1005M64.2426 15.8995L67.0711 13.0711" stroke="#00B2A9" stroke-width="2"/>
+  
+  <!-- Phone -->
+  <rect x="85" y="10" width="30" height="50" rx="5" fill="#FF6B35"/>
+  <rect x="90" y="15" width="20" height="35" rx="2" fill="white"/>
+  <rect x="97" y="53" width="6" height="2" rx="1" fill="#FF6B35"/>
+  
+  <!-- Arrow -->
+  <path d="M125 35H150L145 30M150 35L145 40" stroke="#FF6B35" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="160" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#E0E0E0">APPLE DEALS</text>
+  <text x="160" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#E0E0E0" letter-spacing="2">G H A N A</text>
+</svg>
